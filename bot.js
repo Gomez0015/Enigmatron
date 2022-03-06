@@ -4,6 +4,7 @@ const bot = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MES
 const activeInteractions = new Map();
 const SQLite = require("better-sqlite3");
 const sql = new SQLite("./db/users.sqlite");
+require('dotenv').config();
 
 bot.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(f => f.endsWith('.js'))
@@ -56,4 +57,4 @@ bot.on('interactionCreate', async interaction => {
 });
 
 
-bot.login('OTQ5NzYyNTIwMDI4MTU1OTU1.YiPFRg.3Gd0MXcvx3cpfkPovSNgTq3WeW0');
+bot.login(proccess.env.BOT_TOKEN);

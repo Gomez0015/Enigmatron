@@ -2,10 +2,12 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const fs = require('node:fs');
+require('dotenv').config();
 
 // Place your client and guild ids here
 const clientId = '949762520028155955';
-const token = 'OTQ5NzYyNTIwMDI4MTU1OTU1.YiPFRg.3Gd0MXcvx3cpfkPovSNgTq3WeW0';
+const token = proccess.env.BOT_TOKEN;
+const guildId = '857332849119723520';
 
 const commands = [
         new SlashCommandBuilder().setName('ping').setDescription('Replies with pong!'),
@@ -22,7 +24,7 @@ const rest = new REST({ version: '9' }).setToken(token);
         console.log('Started refreshing application (/) commands.');
 
         await rest.put(
-            Routes.applicationGuildCommands(clientId, '857332849119723520'), { body: commands },
+            Routes.applicationGuildCommands(clientId, guildId), { body: commands },
         );
 
         console.log('Successfully reloaded application (/) commands.');
