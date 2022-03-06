@@ -6,7 +6,7 @@ require('dotenv').config();
 
 // Place your client and guild ids here
 const clientId = '949762520028155955';
-const token = proccess.env.BOT_TOKEN;
+const token = process.env.BOT_TOKEN;
 const guildId = '857332849119723520';
 
 const commands = [

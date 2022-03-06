@@ -57,4 +57,4 @@ bot.on('interactionCreate', async interaction => {
 });
 
 
-bot.login(proccess.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
