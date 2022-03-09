@@ -67,6 +67,13 @@ exports.run = async(bot, user, interaction, activeInteractions) => {
                 collector.stop();
             });
 
+            collector.on('end', async i => {
+                if (activeInteractions.get(interaction.user.id)) {
+                    await i.update({ content: '`Times up!`', components: [] });
+                    activeInteractions.set(interaction.user.id, false);
+                }
+            })
+
             return;
         } else {
             let match = previousRiddles.get(interaction.user.id).filter(function(riddle) { return riddle === randomRiddle; });
