@@ -68,6 +68,7 @@ exports.run = async(bot, user, interaction, activeInteractions) => {
             });
 
             collector.on('end', async i => {
+                console.log(1);
                 if (activeInteractions.get(interaction.user.id)) {
                     await i.update({ content: '`Times up!`', components: [] });
                     activeInteractions.set(interaction.user.id, false);
